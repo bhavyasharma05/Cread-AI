@@ -1,7 +1,9 @@
+
 import React, { useState } from 'react';
 import Onboarding from './screens/Onboarding';
 import Dashboard from './screens/Dashboard';
 import Insights from './screens/Insights';
+import Chatbot from './screens/Chatbot';
 import { Screen } from './types';
 
 const App: React.FC = () => {
@@ -13,9 +15,16 @@ const App: React.FC = () => {
       case Screen.ONBOARDING:
         return <Onboarding onContinue={() => setCurrentScreen(Screen.DASHBOARD)} />;
       case Screen.DASHBOARD:
-        return <Dashboard onViewInsights={() => setCurrentScreen(Screen.INSIGHTS)} />;
+        return (
+            <Dashboard 
+                onViewInsights={() => setCurrentScreen(Screen.INSIGHTS)} 
+                onOpenChat={() => setCurrentScreen(Screen.CHATBOT)}
+            />
+        );
       case Screen.INSIGHTS:
         return <Insights onBack={() => setCurrentScreen(Screen.DASHBOARD)} />;
+      case Screen.CHATBOT:
+        return <Chatbot onBack={() => setCurrentScreen(Screen.DASHBOARD)} />;
       default:
         return <Onboarding onContinue={() => setCurrentScreen(Screen.DASHBOARD)} />;
     }
@@ -42,7 +51,7 @@ const App: React.FC = () => {
          </div>
          
          {/* Dynamic Content */}
-         <main className="h-full w-full overflow-y-auto scrollbar-hide pt-10">
+         <main className="h-full w-full overflow-y-auto scrollbar-hide pt-10 relative">
             {renderScreen()}
          </main>
          

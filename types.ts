@@ -1,7 +1,9 @@
+
 export enum Screen {
   ONBOARDING = 'ONBOARDING',
   DASHBOARD = 'DASHBOARD',
-  INSIGHTS = 'INSIGHTS'
+  INSIGHTS = 'INSIGHTS',
+  CHATBOT = 'CHATBOT'
 }
 
 export interface Transaction {
@@ -31,4 +33,11 @@ export interface RiskAlert {
 export interface SpendingPoint {
   day: string;
   amount: number;
+}
+
+export interface ChatMessage {
+  id: string;
+  text: string;
+  sender: 'user' | 'ai';
+  timestamp: Date;
 }

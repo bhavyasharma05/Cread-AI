@@ -1,16 +1,18 @@
+
 import React from 'react';
-import { Send, History, Sparkles, CreditCard, ChevronRight, TrendingUp } from 'lucide-react';
+import { Send, History, Sparkles, CreditCard, ChevronRight, TrendingUp, Bot } from 'lucide-react';
 import ScoreRing from '../components/ScoreRing';
 import { CRED_SCORE, MAX_SCORE, USER_NAME, TRANSACTIONS } from '../constants';
 import { Transaction } from '../types';
 
 interface DashboardProps {
   onViewInsights: () => void;
+  onOpenChat: () => void;
 }
 
-const Dashboard: React.FC<DashboardProps> = ({ onViewInsights }) => {
+const Dashboard: React.FC<DashboardProps> = ({ onViewInsights, onOpenChat }) => {
   return (
-    <div className="min-h-full bg-bg pb-20 animate-fade-in">
+    <div className="min-h-full bg-bg pb-20 animate-fade-in relative">
       {/* Header */}
       <div className="bg-white px-6 pt-12 pb-6 rounded-b-[30px] shadow-sm mb-6">
         <div className="flex justify-between items-center mb-6">
@@ -97,7 +99,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onViewInsights }) => {
       </div>
 
       {/* Transactions */}
-      <div className="px-6">
+      <div className="px-6 pb-20">
         <div className="flex justify-between items-center mb-4">
             <h3 className="text-lg font-bold text-text-main">Recent Activity</h3>
             <button className="text-sm font-medium text-primary">See All</button>
@@ -108,6 +110,16 @@ const Dashboard: React.FC<DashboardProps> = ({ onViewInsights }) => {
                 <TransactionItem key={tx.id} transaction={tx} />
             ))}
         </div>
+      </div>
+
+      {/* Floating Action Button for Chatbot */}
+      <div className="absolute bottom-6 right-6 z-10">
+        <button 
+          onClick={onOpenChat}
+          className="w-14 h-14 bg-gradient-to-r from-primary to-secondary rounded-full shadow-glow flex items-center justify-center text-white hover:scale-105 active:scale-95 transition-all"
+        >
+          <Bot className="w-7 h-7" />
+        </button>
       </div>
     </div>
   );

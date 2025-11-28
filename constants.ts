@@ -1,4 +1,5 @@
-import { RiskAlert, ScoreMetric, SpendingPoint, Transaction } from './types';
+
+import { RiskAlert, ScoreMetric, SpendingPoint, Transaction, ChatMessage } from './types';
 
 export const USER_NAME = "Bhavya";
 export const CRED_SCORE = 720;
@@ -45,4 +46,12 @@ export const SPENDING_DATA: SpendingPoint[] = [
   { day: 'Fri', amount: 1800 },
   { day: 'Sat', amount: 4200 },
   { day: 'Sun', amount: 2100 },
+];
+
+export const CHAT_SUGGESTIONS = [
+  "Show my score",
+  "Explain risk alerts",
+  "My last transactions",
+  "How to save more?",
+  "Analyze spending"
 ];
