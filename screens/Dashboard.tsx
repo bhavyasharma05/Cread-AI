@@ -50,11 +50,49 @@ const Dashboard: React.FC<DashboardProps> = ({ onViewInsights }) => {
       </div>
 
       {/* Quick Actions */}
-      <div className="px-6 mb-8">
+      <div className="px-6 mb-6">
         <div className="flex justify-between gap-4">
             <QuickAction icon={<Send size={20} />} label="Send" />
             <QuickAction icon={<History size={20} />} label="History" />
             <QuickAction icon={<TrendingUp size={20} />} label="Insights" active onClick={onViewInsights} />
+        </div>
+      </div>
+
+      {/* AI Insights Card */}
+      <div className="px-6 mb-8">
+        <div className="bg-white rounded-[24px] p-6 shadow-soft border border-gray-50">
+            <h3 className="text-lg font-bold text-text-main mb-4 flex items-center gap-2">
+                <Sparkles className="w-5 h-5 text-primary" />
+                AI-Powered Insights
+            </h3>
+            
+            <ul className="space-y-4 mb-6">
+                <li className="flex gap-3 text-sm text-text-muted leading-relaxed">
+                    <span className="text-primary mt-1 font-bold">•</span>
+                    <span>
+                        You consistently receive your monthly salary, demonstrating a strong and reliable income source.
+                    </span>
+                </li>
+                 <li className="flex gap-3 text-sm text-text-muted leading-relaxed">
+                    <span className="text-primary mt-1 font-bold">•</span>
+                    <span>
+                       Your prompt payment of bills like electricity, broadband, and gas highlights excellent financial responsibility.
+                    </span>
+                </li>
+                 <li className="flex gap-3 text-sm text-text-muted leading-relaxed">
+                    <span className="text-primary mt-1 font-bold">•</span>
+                    <span>
+                        Your spending habits appear well-managed, with thoughtful allocation towards daily needs and occasional leisure.
+                    </span>
+                </li>
+            </ul>
+
+            <div className="bg-blue-50 rounded-xl p-4 border-l-4 border-primary">
+                <h4 className="text-primary font-bold text-sm mb-1">Pro Tip:</h4>
+                <p className="text-xs text-text-muted leading-relaxed">
+                    To further strengthen your financial foundation, consider allocating a small portion of your consistent income towards a dedicated savings fund each month.
+                </p>
+            </div>
         </div>
       </div>
 
